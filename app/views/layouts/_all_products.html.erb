@@ -1,0 +1,26 @@
+<table class="table">    
+    <% unless @products.nil? %>
+        <tr>
+            <th> Name </th>
+            <th> Part Number </th>
+            <th> SKU </th>
+            <th> Quantity </th>
+            <th> Vendor </th>
+        </tr>
+        <% @products.each do |pr| %>
+        <tr>
+            <td><%= pr.name %></td>
+            <td><%= pr.part_number %></td>
+            <td><%= pr.sku %></td>
+            <td><%= pr.quantity %></td>
+            <td><%= pr.vendor %></td>
+        </tr>
+        <% end %>
+    <% else %>
+        <h3> No Products to show :( </h3>
+        <% link_to root_path %>
+    <% end %>
+    <div id="close_products_button">
+        <button class="btn btn-primary">Close</button>
+    </div>
+</table>

@@ -1,8 +1,21 @@
-<h1> Products index </h1>
+<header>
+    <h1> Inventory Dashboard </h1>
+</header>
+<body>
+    <div id="show_products_button">
+        <button class="btn btn-primary"> View Inventory </button>
+    </div>
 
-<% if @products.nil? %>
-    <h1> Products </h1>
-<% else %>
-    <%= @products %>
-<% end %>
+    <div id="show_products">
+        <%= render 'layouts/all_products'%>
+    </div>
 
+    <div id="add_products_button">
+        <button class="btn btn-primary"> Add Inventory </button>
+    </div>
+
+    <div id="add_products">
+        <%= render 'layouts/add_products' %>
+    </div>
+    
+</body>

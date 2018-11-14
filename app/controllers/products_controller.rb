@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     
     def index
-        @products = Products.all
+        @products = Product.all
     end
 
     def show
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     private 
 
     def products_params
-        params.require(:products).permit(:part_number)
+        params.require(:products).permit(:part_number, :sku, :quantity, :vendor, :name)
     end
 
 
