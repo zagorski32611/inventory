@@ -1,0 +1,24 @@
+<table class="table">
+    <% unless @customers.nil? %>
+        <tr>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Company </th>
+            <th> Phone Number </th>
+        </tr>
+        <% @customers.each do |cu| %>
+        <tr>
+            <td><%= cu.first_name %></td>
+            <td><%= cu.last_name %></td>
+            <td><%= cu.company %></td>
+            <td><%= cu.phone_number %></td>
+        </tr>
+        <% end %>
+    <% else %>
+        <h3> No customers to show :( </h3>
+        <% link_to root_path %>
+    <% end %>
+    <div id="close_products_button">
+        <button class="btn btn-primary">Close</button>
+    </div>
+</table>
