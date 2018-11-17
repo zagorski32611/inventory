@@ -1,0 +1,20 @@
+<div>
+    <%= form_for Customer.new do |cu| %>
+        <%= cu.label :first_name %>
+        <%= cu.text_field :first_name %>
+
+        <%= cu.label :last_name %>
+        <%= cu.text_field :last_name %>
+
+        <%= cu.label :company %>
+        <%= cu.text_field :company %>
+
+        <%= cu.label :phone_number %>
+        <%= cu.text_field :phone_number %>
+
+        <%= cu.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+    <div id="close_new_customer_button">
+        <button>Close</button>
+    </div>
+</div>
