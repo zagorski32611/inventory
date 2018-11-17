@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
-
-    const hideNewVeh = document.querySelector("#sell_products").style.display = "none";
+    
+    const hideNewSale = document.querySelector("#sell_products").style.display = "none";
     toggleShowProducts();
     cancelShowProducts();
 });
