@@ -2,42 +2,61 @@
     <h1> Inventory Dashboard </h1>
 </header>
 <body>
+    
     <div id="show_products_button">
         <button class="btn btn-primary"> View Inventory </button>
     </div>
+    
     <br/>
+    
     <div id="show_products">
         <%= render 'layouts/all_products'%>
     </div>
+    
     <br/>
+    
     <div id="add_products_button">
         <button class="btn btn-primary"> Add Inventory </button>
     </div>
+    
     <br/>
+    
     <div id="add_products">
         <%= render 'layouts/add_products' %>
     </div>
+    
     <br/>
+    
     <div id="sell_products_button">
         <button class="btn btn-primary"> Sale </button>
     </div>
+    
     <br/>
+    
     <div id="sell_products">
         <%= render 'layouts/sell_products' %>
     </div>
+    
     <br/>
+    
     <div id="show_customers_button">
         <button class="btn btn-primary"> Customers </button>
     </div>
+    
     <br/>
+
     <div id="show_customers">
         <%= render 'layouts/view_customer'%>
     </div>
+
     <br/>
-    <div id="new_customers_button">
+
+    <div id="new_customer_button">
         <button class="btn btn-primary"> New Customer </button>
     </div>
     <div id="new_customer">
         <%= render 'layouts/new_customer' %>
     </div>
+
+
 </body>
