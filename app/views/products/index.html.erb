@@ -34,7 +34,10 @@
         <%= render 'layouts/view_customer'%>
     </div>
     <br/>
-    <div id="new_customers">
-        <%= render 'layouts/new_customer'%>
+    <div id="new_customers_button">
+        <button class="btn btn-primary"> New Customer </button>
+    </div>
+    <div id="new_customer">
+        <%= render 'layouts/new_customer', :locals => { :customer => Customer.new } %>
     </div>
 </body>

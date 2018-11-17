@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
     
     def index
         @products = Product.all
+        @customer = Customer.new
     end
 
     def show
@@ -40,6 +41,7 @@ class ProductsController < ApplicationController
         end
         redirect_to products_path
     end
+
 
     private 
 

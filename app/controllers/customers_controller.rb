@@ -16,16 +16,16 @@ class CustomersController < ApplicationController
     end
 
     def create
-        @customers = Customer.new(products_params)
+        @customers = Customer.new(customer_params)
         @customers.save
-        redirect_to products_path
+        redirect_to products_url
     end
 
     def update
         @customers = Customer.find(params[:id])
-        if @customers.update(products_params)
+        if @customers.update(customer_params)
             flash[:success] = "Updated product information"
-            redirect_to products_path
+            redirect_to customer_path
         else
             flash[:alert] = "Error!"
             render :edit
@@ -37,12 +37,12 @@ class CustomersController < ApplicationController
         if @customers.present?
             @customers.present?
         end
-        redirect_to products_path
+        redirect_to customer_path
     end
 
     private 
 
-    def products_params
-        params.require(:customer).permit(:first_name, :last_name, :comapny, :phone_number)
+    def customer_params
+        params.require(:customer).permit(:first_name, :last_name, :company, :phone_number)
     end
 end
