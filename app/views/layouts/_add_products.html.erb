@@ -1,0 +1,23 @@
+<div>
+    <%= form_for Product.new do |p| %>
+        <%= p.label :name %>
+        <%= p.text_field :name %>
+
+        <%= p.label :part_number %>
+        <%= p.text_field :part_number %>
+
+        <%= p.label :sku %>
+        <%= p.text_field :sku %>
+
+        <%= p.label :quantity %>
+        <%= p.text_field :quantity %>
+
+        <%= p.label :vendor %>
+        <%= p.text_field :vendor %>
+
+        <%= p.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+    <div id="close_new_products_button">
+        <button>Close</button>
+    </div>
+</div>

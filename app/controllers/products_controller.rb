@@ -5,26 +5,25 @@ class ProductsController < ApplicationController
     end
 
     def show
-        @products = Products.all
+        @products = Product.all
     end
 
     def new
-        @products = Products.new
-
+        @products = Product.new
     end
 
     def edit
-        @products = Products.find(params[:id])
+        @products = Product.find(params[:id])
     end
 
     def create
-        @products = Products.new(products_params)
+        @products = Product.new(products_params)
         @products.save
         redirect_to products_path
     end
 
     def update
-        @products = Products.find(params[:id])
+        @products = Product.find(params[:id])
         if @products.update(products_params)
             flash[:success] = "Updated product information"
             redirect_to products_path
@@ -35,7 +34,7 @@ class ProductsController < ApplicationController
     end
 
     def destroy
-        @products = Products.find(params[:id])
+        @products = Product.find(params[:id])
         if @products.present?
             @products.present?
         end
