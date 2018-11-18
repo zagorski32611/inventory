@@ -47,13 +47,15 @@ class ProductsController < ApplicationController
 
     def autocomplete
         # This is the search term, that will be built with jbuilder in /views/products/search.json
-        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true)
-        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true)
+        
+        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true).limit(5)
+        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true).limit(5)
 
     end 
 
     def search
         # This is the search term, that will be built with jbuilder in /views/products/search.json
+        #raise "You are here"
         @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true)
         @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true)
 
