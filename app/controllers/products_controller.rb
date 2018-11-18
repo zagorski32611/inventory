@@ -44,8 +44,10 @@ class ProductsController < ApplicationController
     end
 
     def search
-        render json: {customers: [], products: []}
-    end
+        # This is the search term, that will be built with jbuilder in /views/products/search.json
+        @customers = Customer.ransack(params[:q]).result(distinct: :true)
+        @products = Product.ransack(params[:q]).result(distinct: :true
+    end 
 
     private 
 
