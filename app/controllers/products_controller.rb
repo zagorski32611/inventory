@@ -43,6 +43,9 @@ class ProductsController < ApplicationController
         redirect_to products_path
     end
 
+    def search
+        render json: {customers: [], products: []}
+    end
 
     private 
 
