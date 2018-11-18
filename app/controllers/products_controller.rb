@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-    
-    before_action :force_json, only: :search
+    # Use this when seperating autocomplete and search!
+    before_action :force_json, only: :autocomplete
 
     def index
         @products = Product.all
@@ -45,10 +45,17 @@ class ProductsController < ApplicationController
         redirect_to products_path
     end
 
+    def autocomplete
+        # This is the search term, that will be built with jbuilder in /views/products/search.json
+        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true)
+        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true)
+
+    end 
+
     def search
         # This is the search term, that will be built with jbuilder in /views/products/search.json
-        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true).limit(5)
-        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true).limit(5)
+        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true)
+        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true)
 
     end 
 
