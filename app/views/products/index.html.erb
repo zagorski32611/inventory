@@ -3,9 +3,14 @@
 </header>
 <body>
     
-    <div id="search_field">
-        <%= form_for%>
+    <div id="search_field" class="field">
+      <h4> Search for parts for customers: </h4>
+      <input class="form-control" type="text" placeholder="search by part number, phone number or sku" data-behavior="autocomplete">
+      <button class="btn btn-primart" type="submit"> Search </button>
     </div>
+
+    <br />
+    
     <div id="show_products_button">
         <button class="btn btn-primary"> View Inventory </button>
     </div>
