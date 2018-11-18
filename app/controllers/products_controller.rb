@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
         @products = Product.all
         @customers = Customer.all
         @customer = Customer.new
+        #render json: Product.all
     end
 
     def show
@@ -48,8 +49,8 @@ class ProductsController < ApplicationController
     def autocomplete
         # This is the search term, that will be built with jbuilder in /views/products/search.json
         
-        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true).limit(5)
-        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true).limit(5)
+        @customers = Customer.ransack(phone_number_cont: params[:q]).result(distinct: :true)
+        @products = Product.ransack(part_number_cont: params[:q]).result(distinct: :true)
 
     end 
 

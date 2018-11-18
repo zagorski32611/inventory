@@ -1,9 +1,21 @@
 document.addEventListener("turbolinks:load", function() {
+    
     $input = $("#autocomplete")
+
     
     var options = {
-        getValue: "part_number",
-        url: function(phrase){
+        url: "/autocompelete.json?q=",
+
+        matchResponseProperty: "inputPhrase"
+        
+    };
+
+    $input.easyAutocomplete(options)
+});
+
+/*
+This is the original from the tutorial:
+url: function(phrase){
             return "/autocomplete.json?q=" + phrase;
         },
         getValue: "phone_number",
@@ -20,14 +32,16 @@ document.addEventListener("turbolinks:load", function() {
                 header: "Customers"
             }
         ],
+
+
+        Possibly this:
+                data: function(phrase){
+            return "/autocomplete.json?q=" + phrase;
+        },
         list: {
             onChooseEvent: function() {
                 var url = $input.getSelectedItemData().url
                 console.log(url)
             }
         }
-
-    }
-
-    $input.easyAutocomplete(options)
-});
+*/
