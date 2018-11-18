@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
     
+    before_action :force_json, only: :search
+
     def index
         @products = Product.all
         @customers = Customer.all
@@ -45,8 +47,8 @@ class ProductsController < ApplicationController
 
     def search
         # This is the search term, that will be built with jbuilder in /views/products/search.json
-        @customers = Customer.ransack(params[:q]).result(distinct: :true)
-        @products = Product.ransack(params[:q]).result(distinct: :true
+        @customers = Customer.ransack(first_name_cont: params[:q]).result(distinct: :true).limit(5)
+        @products = Product.ransack(name_cont: params[:q]).result(distinct: :true).limit(5)
     end 
 
     private 
@@ -55,5 +57,7 @@ class ProductsController < ApplicationController
         params.require(:product).permit(:part_number, :sku, :quantity, :vendor, :name)
     end
 
-
+    def force_json
+        request.format = :json
+    end
 end
