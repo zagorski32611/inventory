@@ -2,15 +2,16 @@
     <h1> Inventory Dashboard </h1>
 </header>
 <body>
-    
-    <div id="search_field" class="field">
-      <h4> Search for parts for customers: </h4>
-      <input class="form-control" type="text" placeholder="search by part number, phone number or sku" data-behavior="autocomplete">
-      <button class="btn btn-primart" type="submit"> Search </button>
-    </div>
+
+
+    <%= form_with url: search_path, local: true, method: :get do |form| %>
+        <%= form.text_field :q, placeholder: "Search", data: {behavior: "autocomplete"} %>
+        <%= form.button "Search", class: "btn btn-primary" %>
+    <% end %>
+
 
     <br />
-    
+
     <div id="show_products_button">
         <button class="btn btn-primary"> View Inventory </button>
     </div>

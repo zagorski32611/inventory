@@ -12,6 +12,6 @@ json.products do
         json.name           product.name
         json.sku            product.sku
         json.quantity       product.quantity
-        json.part_number   product.part_number
+        json.part_number    product.part_number
     end
 end
